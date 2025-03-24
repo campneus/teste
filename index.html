@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Campneus</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Dashboard - Campneus</h1>
+
+    <div class="container" id="loginContainer">
+        <h2>Login</h2>
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Senha">
+        <button id="loginButton">Entrar</button>
+        <p id="error" style="color: red;"></p>
+    </div>
+
+    <div id="selectionContainer" style="display: none;">
+        <h2>Escolha qual segmento deseja visualizar: </h2>
+        <button id="varejoButton">Varejo</button>
+        <button id="atacadoButton">Industrial</button>
+        <button id="industrialCarButton">Atacado CAR<br>(em construção) </button>
+        <button id="industrialMotoButton">Atacado MOTO<br>(em construção) </button>
+        <button id="logoutButton">Sair</button>
+    </div>
+
+    <div id="dashboardContainer" style="display: none;">
+        <iframe id="dashboardFrame" title="Painel Gerencial - Campneus" src="" allowFullScreen="true"></iframe>
+        <button id="backButton">Voltar</button>
+    </div>
+
+    <script src="login.js" type="module"></script>
+</body>
+</html>
