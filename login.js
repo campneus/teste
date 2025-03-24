@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyC9b7BXNm8HijR-k-GZUJeCJn5gT0rKBbk",
@@ -66,9 +66,34 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error("Erro ao enviar o email: ", error));
     }
 
+    function resetPassword() {
+        const email = document.getElementById("resetEmail").value.trim();
+
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                document.getElementById("resetSuccess").textContent = 'Link de recuperação enviado para o seu e-mail.';
+                document.getElementById("resetError").textContent = '';
+            })
+            .catch((error) => {
+                document.getElementById("resetError").textContent = error.message;
+                document.getElementById("resetSuccess").textContent = '';
+            });
+    }
+
+    // Evento para mostrar a tela de recuperação de senha
+    document.getElementById("forgotPasswordLink").addEventListener("click", () => {
+        document.getElementById("loginContainer").style.display = "none";
+        document.getElementById("forgotPasswordContainer").style.display = "block";
+    });
+
+    // Evento para enviar e-mail de recuperação de senha
+    document.getElementById("resetPasswordButton").addEventListener("click", resetPassword);
+
+    // Eventos de login e logout
     document.getElementById("loginButton").addEventListener("click", login);
     document.getElementById("logoutButton").addEventListener("click", logout);
 
+    // Eventos para navegação no dashboard
     document.getElementById("varejoButton").addEventListener("click", function() {
         document.getElementById("dashboardContainer").style.display = "flex";
         document.getElementById("selectionContainer").style.display = "none";

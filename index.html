@@ -16,6 +16,15 @@
         <input type="password" id="password" placeholder="Senha">
         <button id="loginButton">Entrar</button>
         <p id="error" style="color: red;"></p>
+        <a href="#" id="forgotPasswordLink">Esqueci minha senha</a> <!-- Link para recuperação de senha -->
+    </div>
+
+    <div id="forgotPasswordContainer" style="display: none;">
+        <h2>Recuperar senha</h2>
+        <input type="email" id="resetEmail" placeholder="Digite seu e-mail">
+        <button id="resetPasswordButton">Enviar link de recuperação</button>
+        <p id="resetError" style="color: red;"></p>
+        <p id="resetSuccess" style="color: green;"></p>
     </div>
 
     <div id="selectionContainer" style="display: none;">
