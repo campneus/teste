@@ -89,6 +89,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // Evento para enviar e-mail de recuperação de senha
     document.getElementById("resetPasswordButton").addEventListener("click", resetPassword);
 
+    // Evento para voltar à tela de login
+    document.getElementById("backToLoginButton").addEventListener("click", () => {
+        document.getElementById("forgotPasswordContainer").style.display = "none";
+        document.getElementById("loginContainer").style.display = "block";
+    });
+
     // Eventos de login e logout
     document.getElementById("loginButton").addEventListener("click", login);
     document.getElementById("logoutButton").addEventListener("click", logout);
