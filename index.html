@@ -10,38 +10,43 @@
 
     <h1>Dashboard - Campneus</h1>
 
+    <!-- Container de login -->
     <div class="container" id="loginContainer">
         <h2>Login</h2>
-        <input type="email" id="email" placeholder="Email">
-        <input type="password" id="password" placeholder="Senha">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Senha" required>
         <button id="loginButton">Entrar</button>
         <p id="error" style="color: red;"></p>
-        <a href="#" id="forgotPasswordLink">Esqueci minha senha</a> <!-- Link para recuperação de senha -->
+        <button id="forgotPasswordButton">Esqueci minha senha</button>
     </div>
 
-    <div id="forgotPasswordContainer" style="display: none;">
-        <h2>Recuperar senha</h2>
-        <input type="email" id="resetEmail" placeholder="Digite seu e-mail">
-        <button id="resetPasswordButton">Enviar link de recuperação</button>
+    <!-- Container de recuperação de senha -->
+    <div class="container" id="resetPasswordContainer" style="display: none;">
+        <h2>Recuperação de Senha</h2>
+        <input type="email" id="resetEmail" placeholder="Digite seu email">
+        <button id="sendResetEmailButton">Enviar Email de Recuperação</button>
         <p id="resetError" style="color: red;"></p>
-        <p id="resetSuccess" style="color: green;"></p>
-        <button id="backToLoginButton">Voltar para o Login</button> <!-- Botão para voltar ao login -->
+        <button id="backToLoginButton">Voltar para o Login</button>
     </div>
 
+    <!-- Container de seleção -->
     <div id="selectionContainer" style="display: none;">
-        <h2>Escolha qual segmento deseja visualizar: </h2>
+        <h2>Escolha qual segmento deseja visualizar:</h2>
         <button id="varejoButton">Varejo</button>
         <button id="atacadoButton">Industrial</button>
-        <button id="industrialCarButton">Atacado CAR<br>(em construção) </button>
-        <button id="industrialMotoButton">Atacado MOTO<br>(em construção) </button>
+        <button id="industrialCarButton">Atacado CAR</button>
+        <button id="industrialMotoButton">Atacado MOTO</button>
         <button id="logoutButton">Sair</button>
     </div>
 
+    <!-- Container de dashboard -->
     <div id="dashboardContainer" style="display: none;">
         <iframe id="dashboardFrame" title="Painel Gerencial - Campneus" src="" allowFullScreen="true"></iframe>
         <button id="backButton">Voltar</button>
     </div>
 
-    <script src="login.js" type="module"></script>
+    <script type="module" src="app.js"></script>
+
 </body>
+
 </html>
