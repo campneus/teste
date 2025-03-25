@@ -108,10 +108,4 @@ button {
 
 /* Ajustes para o botão Sair no rodapé */
 #logoutButton {
-    position: absolute;
-    bottom: 20px;          /* Coloca o botão 20px acima do rodapé */
-    width: 60%;            /* Aumenta a largura do botão */
-    padding: 15px;         /* Aumenta o padding do botão */
-    font-size: 16px;       /* Aumenta o tamanho da fonte do botão */
-    border-radius: 20px;   /* Aumenta o arredondamento dos cantos */
-}
+    position: fixed;       /* Muda*
