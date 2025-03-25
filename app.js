@@ -107,14 +107,14 @@ document.addEventListener("DOMContentLoaded", function () {
         selectDashboard("https://app.powerbi.com/view?r=eyJrIjoiZDhlY2U0YjMtZWZjOS00NjA5LWEyOGQtMzYzZWI4MzFiYmFhIiwidCI6IjMxMjY2ODM1LTYwNDAtNGRlZS04NzA2LTkzY2M4OTYyMTYwNCJ9");
     });
 
-    // Comentar os botões em construção por enquanto
-    document.getElementById("industrialCarButton").addEventListener("click", function () {
-        selectDashboard("");
-    });
+// Comentar os botões em construção por enquanto
+// document.getElementById("industrialCarButton").addEventListener("click", function () {
+//     selectDashboard("");
+//});
 
-    document.getElementById("industrialMotoButton").addEventListener("click", function () {
-        selectDashboard("");
-    });
+// document.getElementById("industrialMotoButton").addEventListener("click", function () {
+//        selectDashboard("");
+//    });
 
     // Botão de voltar
     document.getElementById("backButton").addEventListener("click", function () {
