@@ -15,6 +15,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 document.addEventListener("DOMContentLoaded", function () {
+
     function login() {
         const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value.trim();
@@ -62,8 +63,8 @@ document.addEventListener("DOMContentLoaded", function () {
         var templateID = "template_ebja9y1";
 
         emailjs.send(serviceID, templateID, params)
-        .then(res => console.log("Email enviado com sucesso!"))
-        .catch(error => console.error("Erro ao enviar o email: ", error));
+            .then(res => console.log("Email enviado com sucesso!"))
+            .catch(error => console.error("Erro ao enviar o email: ", error));
     }
 
     function resetPassword() {
@@ -89,46 +90,55 @@ document.addEventListener("DOMContentLoaded", function () {
     // Evento para enviar e-mail de recuperação de senha
     document.getElementById("resetPasswordButton").addEventListener("click", resetPassword);
 
-    // Evento de login e logout
-    document.getElementById("loginButton").addEventListener("click", login);
-    document.getElementById("logoutButton").addEventListener("click", logout);
-
-    // Evento para navegação no dashboard
-    document.getElementById("varejoButton").addEventListener("click", function() {
+    // Evento para carregar o iframe com o link do Power BI
+    document.getElementById("varejoButton").addEventListener("click", function () {
+        const iframe = document.getElementById("dashboardFrame");
+        if (iframe) {
+            iframe.src = "https://app.powerbi.com/view?r=eyJrIjoiOWI2OTRkYTUtNjBiZC00YWM1LTllZTEtMmQ2MWIyNTJjMzI4IiwidCI6IjMxMjY2ODM1LTYwNDAtNGRlZS04NzA2LTkzY2M4OTYyMTYwNCJ9";
+            iframe.onload = function () {
+                console.log("Iframe carregado com sucesso!");
+            };
+            iframe.onerror = function () {
+                console.error("Erro ao carregar o iframe.");
+            };
+        } else {
+            console.error("Elemento iframe não encontrado!");
+        }
         document.getElementById("dashboardContainer").style.display = "flex";
         document.getElementById("selectionContainer").style.display = "none";
-        const iframe = document.getElementById("dashboardFrame");
-        iframe.src = "https://app.powerbi.com/view?r=eyJrIjoiOWI2OTRkYTUtNjBiZC00YWM1LTllZTEtMmQ2MWIyNTJjMzI4IiwidCI6IjMxMjY2ODM1LTYwNDAtNGRlZS04NzA2LTkzY2M4OTYyMTYwNCJ9";
-        
-        // Adicionando um evento para verificar o carregamento do iframe
-        iframe.onload = function() {
-            console.log("Iframe carregado com sucesso!");
-        };
-        
-        iframe.onerror = function() {
-            console.error("Erro ao carregar o iframe.");
-        };
     });
 
-    document.getElementById("atacadoButton").addEventListener("click", function() {
+    // Evento para carregar outro iframe, se necessário
+    document.getElementById("atacadoButton").addEventListener("click", function () {
+        const iframe = document.getElementById("dashboardFrame");
+        if (iframe) {
+            iframe.src = "https://app.powerbi.com/view?r=eyJrIjoiZDhlY2U0YjMtZWZjOS00NjA5LWEyOGQtMzYzZWI4MzFiYmFhIiwidCI6IjMxMjY2ODM1LTYwNDAtNGRlZS04NzA2LTkzY2M4OTYyMTYwNCJ9";
+            iframe.onload = function () {
+                console.log("Iframe carregado com sucesso!");
+            };
+            iframe.onerror = function () {
+                console.error("Erro ao carregar o iframe.");
+            };
+        } else {
+            console.error("Elemento iframe não encontrado!");
+        }
         document.getElementById("dashboardContainer").style.display = "flex";
         document.getElementById("selectionContainer").style.display = "none";
-        const iframe = document.getElementById("dashboardFrame");
-        iframe.src = "https://app.powerbi.com/view?r=eyJrIjoiZDhlY2U0YjMtZWZjOS00NjA5LWEyOGQtMzYzZWI4MzFiYmFhIiwidCI6IjMxMjY2ODM1LTYwNDAtNGRlZS04NzA2LTkzY2M4OTYyMTYwNCJ9";
-        
-        // Adicionando um evento para verificar o carregamento do iframe
-        iframe.onload = function() {
-            console.log("Iframe carregado com sucesso!");
-        };
-        
-        iframe.onerror = function() {
-            console.error("Erro ao carregar o iframe.");
-        };
     });
 
-    // Evento para voltar ao menu de seleção
-    document.getElementById("backButton").addEventListener("click", function() {
+    document.getElementById("backButton").addEventListener("click", function () {
         document.getElementById("dashboardContainer").style.display = "none";
         document.getElementById("selectionContainer").style.display = "flex";
     });
+
+    // Limpar cache a cada 10 minutos
+    setInterval(function () {
+        localStorage.clear();
+        sessionStorage.clear();
+        console.log("Cache limpo.");
+    }, 600000); // 600000ms = 10 minutos
+
+    // Eventos de login e logout
+    document.getElementById("loginButton").addEventListener("click", login);
+    document.getElementById("logoutButton").addEventListener("click", logout);
 });
