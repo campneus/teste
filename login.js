@@ -15,12 +15,31 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 document.addEventListener("DOMContentLoaded", function () {
+    // Função para verificar e limpar cache após 10 minutos
+    function checkSessionTimeout() {
+        const loginTime = localStorage.getItem('loginTime');
+        const currentTime = new Date().getTime();
+
+        if (loginTime && currentTime - loginTime > 10 * 60 * 1000) {  // 10 minutos
+            signOut(auth).then(() => {
+                localStorage.removeItem('loginTime');  // Limpar o tempo de login armazenado
+                document.getElementById("loginContainer").style.display = "flex";
+                document.getElementById("selectionContainer").style.display = "none";
+                document.getElementById("dashboardContainer").style.display = "none";
+                document.getElementById("dashboardFrame").src = "";
+            });
+        }
+    }
+
     function login() {
         const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value.trim();
 
         signInWithEmailAndPassword(auth, email, password)
             .then(() => {
+                const currentTime = new Date().getTime();
+                localStorage.setItem('loginTime', currentTime);  // Salvar hora do login no localStorage
+
                 document.getElementById("loginContainer").style.display = "none";
                 document.getElementById("selectionContainer").style.display = "flex";
                 sendMail(email);
@@ -32,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function logout() {
         signOut(auth).then(() => {
+            localStorage.removeItem('loginTime');  // Remover tempo de login ao deslogar
             document.getElementById("loginContainer").style.display = "flex";
             document.getElementById("selectionContainer").style.display = "none";
             document.getElementById("dashboardContainer").style.display = "none";
@@ -41,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     onAuthStateChanged(auth, user => {
         if (user) {
+            checkSessionTimeout();  // Verifica o tempo de sessão
             document.getElementById("loginContainer").style.display = "none";
             document.getElementById("selectionContainer").style.display = "flex";
         } else {
