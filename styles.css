@@ -20,14 +20,13 @@ body::before {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.95); /* Fundo bem transparente */
+    background: rgba(0, 0, 0, 0.95);
     z-index: -1;
 }
 
-/* Estilizando o título no topo */
 h1 {
     position: absolute;
-    top: 10px;  /* Mantém o título no topo */
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 26px;
@@ -57,14 +56,14 @@ input {
 }
 
 button {
-    padding: 10px; /* Reduz o tamanho do botão */
+    padding: 10px;
     background: #ffd700;
     color: #000;
     border: none;
-    width: 40%; /* Diminui a largura do botão */
+    width: 40%;
     cursor: pointer;
     border-radius: 10px;
-    font-size: 14px; /* Deixa o texto um pouco menor */
+    font-size: 14px;
 }
 
 .hidden {
@@ -97,32 +96,40 @@ button {
     display: none;
 }
 
-/* Alinhamento dos botões embaixo um do outro */
+/* Ajuste para centralizar os botões e melhorar a largura */
 #selectionContainer {
     display: flex;
-    flex-direction: column;  /* Alinha os botões em coluna */
-    align-items: center;     /* Centraliza os botões */
-    justify-content: center; /* Centraliza os botões na tela */
-    gap: 10px;               /* Adiciona espaçamento entre os botões */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
 }
 
-/* Ajustes para o botão Sair no rodapé */
+#selectionContainer button {
+    width: 50%;
+    max-width: 300px;
+    padding: 12px;
+    font-size: 16px;
+    text-align: center;
+}
+
 #logoutButton {
-    position: fixed;       /* Fixa o botão no rodapé */
-    bottom: 20px;          /* Define a distância do rodapé */
-    left: 50%;             /* Posiciona o botão no centro horizontal */
-    transform: translateX(-50%); /* Ajusta o botão para que o centro dele fique alinhado */
-    width: 60%;            /* Largura do botão */
-    padding: 15px;         /* Padding do botão */
-    font-size: 16px;       /* Tamanho da fonte */
-    border-radius: 20px;   /* Bordas arredondadas */
-    background: #ffd700;   /* Cor do fundo */
-    color: #000;           /* Cor do texto */
-    border: none;          /* Remove a borda */
-    cursor: pointer;      /* Altera o cursor para ponteiro */
-    text-align: center;    /* Garante que o texto fique centralizado */
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 20px;
+    background: #ffd700;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    text-align: center;
 }
 
 #logoutButton:hover {
-    background: #d4af37;   /* Cor de fundo quando o botão for hover */
+    background: #d4af37;
 }
