@@ -108,4 +108,21 @@ button {
 
 /* Ajustes para o botão Sair no rodapé */
 #logoutButton {
-    position: fixed;       /* Muda*
+    position: fixed;       /* Fixa o botão no rodapé */
+    bottom: 20px;          /* Define a distância do rodapé */
+    left: 50%;             /* Posiciona o botão no centro horizontal */
+    transform: translateX(-50%); /* Ajusta o botão para que o centro dele fique alinhado */
+    width: 60%;            /* Largura do botão */
+    padding: 15px;         /* Padding do botão */
+    font-size: 16px;       /* Tamanho da fonte */
+    border-radius: 20px;   /* Bordas arredondadas */
+    background: #ffd700;   /* Cor do fundo */
+    color: #000;           /* Cor do texto */
+    border: none;          /* Remove a borda */
+    cursor: pointer;      /* Altera o cursor para ponteiro */
+    text-align: center;    /* Garante que o texto fique centralizado */
+}
+
+#logoutButton:hover {
+    background: #d4af37;   /* Cor de fundo quando o botão for hover */
+}
