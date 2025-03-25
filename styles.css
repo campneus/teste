@@ -20,13 +20,14 @@ body::before {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.95); /* Fundo bem transparente */
     z-index: -1;
 }
 
+/* Estilizando o título no topo */
 h1 {
     position: absolute;
-    top: 10px;
+    top: 10px;  /* Mantém o título no topo */
     left: 50%;
     transform: translateX(-50%);
     font-size: 26px;
@@ -56,14 +57,14 @@ input {
 }
 
 button {
-    padding: 10px;
+    padding: 10px; /* Reduz o tamanho do botão */
     background: #ffd700;
     color: #000;
     border: none;
-    width: 40%;
+    width: 40%; /* Diminui a largura do botão */
     cursor: pointer;
     border-radius: 10px;
-    font-size: 14px;
+    font-size: 14px; /* Deixa o texto um pouco menor */
 }
 
 .hidden {
@@ -96,46 +97,21 @@ button {
     display: none;
 }
 
-/* Ajuste para centralizar a seleção e os botões */
+/* Alinhamento dos botões embaixo um do outro */
 #selectionContainer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    width: 100%;
-    height: 100vh;
-    text-align: center;
+    flex-direction: column;  /* Alinha os botões em coluna */
+    align-items: center;     /* Centraliza os botões */
+    justify-content: center; /* Centraliza os botões na tela */
+    gap: 10px;               /* Adiciona espaçamento entre os botões */
 }
 
-#selectionContainer h2 {
-    margin-bottom: 20px;
-}
-
-#selectionContainer button {
-    width: 50%;
-    max-width: 300px;
-    padding: 12px;
-    font-size: 16px;
-    text-align: center;
-}
-
+/* Ajustes para o botão Sair no rodapé */
 #logoutButton {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    padding: 15px;
-    font-size: 16px;
-    border-radius: 20px;
-    background: #ffd700;
-    color: #000;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-}
-
-#logoutButton:hover {
-    background: #d4af37;
+    position: absolute;
+    bottom: 20px;          /* Coloca o botão 20px acima do rodapé */
+    width: 60%;            /* Aumenta a largura do botão */
+    padding: 15px;         /* Aumenta o padding do botão */
+    font-size: 16px;       /* Aumenta o tamanho da fonte do botão */
+    border-radius: 20px;   /* Aumenta o arredondamento dos cantos */
 }
