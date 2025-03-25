@@ -3,13 +3,13 @@ import { getAuth, signInWithEmailAndPassword, signOut, sendPasswordResetEmail } 
 
 // Configuração do Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyC9b7BXNm8HijR-k-GZUJeCJn5gT0rKBbk",
-  authDomain: "campneus-dashboard.firebaseapp.com",
-  projectId: "campneus-dashboard",
-  storageBucket: "campneus-dashboard.firebasestorage.app",
-  messagingSenderId: "172203992376",
-  appId: "1:172203992376:web:91d4ddf048071f110d8dcd",
-  measurementId: "G-E6MZYD2YXG"
+    apiKey: "AIzaSyC9b7BXNm8HijR-k-GZUJeCJn5gT0rKBbk",
+    authDomain: "campneus-dashboard.firebaseapp.com",
+    projectId: "campneus-dashboard",
+    storageBucket: "campneus-dashboard.firebasestorage.app",
+    messagingSenderId: "172203992376",
+    appId: "1:172203992376:web:91d4ddf048071f110d8dcd",
+    measurementId: "G-E6MZYD2YXG"
 };
 
 // Inicializar Firebase
@@ -18,12 +18,14 @@ const auth = getAuth();
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    // Função de login
     function login() {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
 
         signInWithEmailAndPassword(auth, email, password)
-            .then(() => {
+            .then((userCredential) => {
+                // Login bem-sucedido
                 document.getElementById("loginContainer").style.display = "none";
                 document.getElementById("selectionContainer").style.display = "block";
             })
@@ -33,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
+    // Função de logout
     function logout() {
         signOut(auth).then(() => {
             document.getElementById("selectionContainer").style.display = "none";
@@ -44,13 +47,16 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // Função para selecionar o dashboard
     function selectDashboard(url) {
         document.getElementById("selectionContainer").style.display = "none";
         document.getElementById("dashboardContainer").style.display = "block";
         const iframe = document.getElementById("dashboardFrame");
         iframe.src = url;
+        iframe.style.display = "block";
     }
 
+    // Função para enviar o email de recuperação de senha
     function sendResetEmail() {
         const email = document.getElementById("resetEmail").value;
 
@@ -66,7 +72,22 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
-    // Eventos de login
+    // Mostrar a tela de recuperação de senha
+    document.getElementById("forgotPasswordButton").addEventListener("click", function () {
+        document.getElementById("loginContainer").style.display = "none";
+        document.getElementById("resetPasswordContainer").style.display = "block";
+    });
+
+    // Enviar o email de recuperação
+    document.getElementById("sendResetEmailButton").addEventListener("click", sendResetEmail);
+
+    // Voltar para o login
+    document.getElementById("backToLoginButton").addEventListener("click", function () {
+        document.getElementById("resetPasswordContainer").style.display = "none";
+        document.getElementById("loginContainer").style.display = "block";
+    });
+
+    // Vincular eventos aos botões
     document.getElementById("loginButton").addEventListener("click", login);
     document.getElementById("password").addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
@@ -74,10 +95,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Eventos de logout
+    // Logout
     document.getElementById("logoutButton").addEventListener("click", logout);
 
-    // Eventos de seleção de dashboards
+    // Seleção de dashboards
     document.getElementById("varejoButton").addEventListener("click", function () {
         selectDashboard("https://app.powerbi.com/view?r=eyJrIjoiOWI2OTRkYTUtNjBiZC00YWM1LTllZTEtMmQ2MWIyNTJjMzI4IiwidCI6IjMxMjY2ODM1LTYwNDAtNGRlZS04NzA2LTkzY2M4OTYyMTYwNCJ9");
     });
@@ -86,24 +107,18 @@ document.addEventListener("DOMContentLoaded", function () {
         selectDashboard("https://app.powerbi.com/view?r=eyJrIjoiZDhlY2U0YjMtZWZjOS00NjA5LWEyOGQtMzYzZWI4MzFiYmFhIiwidCI6IjMxMjY2ODM1LTYwNDAtNGRlZS04NzA2LTkzY2M4OTYyMTYwNCJ9");
     });
 
-    // Voltar para a seleção de dashboards
+    // Comentar os botões em construção por enquanto
+    document.getElementById("industrialCarButton").addEventListener("click", function () {
+        selectDashboard("");
+    });
+
+    document.getElementById("industrialMotoButton").addEventListener("click", function () {
+        selectDashboard("");
+    });
+
+    // Botão de voltar
     document.getElementById("backButton").addEventListener("click", function () {
         document.getElementById("dashboardContainer").style.display = "none";
         document.getElementById("selectionContainer").style.display = "block";
-    });
-
-    // Esqueci minha senha
-    document.getElementById("forgotPasswordButton").addEventListener("click", function () {
-        document.getElementById("loginContainer").style.display = "none";
-        document.getElementById("resetPasswordContainer").style.display = "block";
-    });
-
-    // Enviar email de recuperação
-    document.getElementById("sendResetEmailButton").addEventListener("click", sendResetEmail);
-
-    // Voltar para o login
-    document.getElementById("backToLoginButton").addEventListener("click", function () {
-        document.getElementById("resetPasswordContainer").style.display = "none";
-        document.getElementById("loginContainer").style.display = "block";
     });
 });
