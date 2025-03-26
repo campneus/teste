@@ -97,21 +97,22 @@ button {
     display: none;
 }
 
-/* Alinhamento dos botões embaixo um do outro */
+/* Alinhamento dos botões dentro do container de seleção */
 #selectionContainer {
     display: flex;
-    flex-direction: column;  /* Alinha os botões em coluna */
-    align-items: center;     /* Centraliza os botões */
-    justify-content: center; /* Centraliza os botões na tela */
-    gap: 10px;               /* Adiciona espaçamento entre os botões */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
 }
 
-/* Ajustes para o botão Sair no rodapé */
+/* Ajuste para o botão "Sair" */
 #logoutButton {
-    position: absolute;
-    bottom: 20px;          /* Coloca o botão 20px acima do rodapé */
-    width: 60%;            /* Aumenta a largura do botão */
-    padding: 15px;         /* Aumenta o padding do botão */
-    font-size: 16px;       /* Aumenta o tamanho da fonte do botão */
-    border-radius: 20px;   /* Aumenta o arredondamento dos cantos */
+    width: 60%;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 20px;
+    margin-top: 20px;
+    position: static;
 }
