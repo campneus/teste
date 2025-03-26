@@ -4,7 +4,7 @@
     script.onload = function() {
         console.log("Disparo carregado com sucesso!");
         if (typeof emailjs !== "undefined") {
-            emailjs.init("bnv9mOuJF0AUUuTV4"); // USER ID
+            emailjs.init("RSADC3ijDTpV_vUPp"); // USER ID
         }
     };
     document.head.appendChild(script);
