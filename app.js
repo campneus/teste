@@ -1,20 +1,23 @@
+// app.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, signOut, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
 
 // Configuração do Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyC9b7BXNm8HijR-k-GZUJeCJn5gT0rKBbk",
-    authDomain: "campneus-dashboard.firebaseapp.com",
-    projectId: "campneus-dashboard",
-    storageBucket: "campneus-dashboard.firebasestorage.app",
-    messagingSenderId: "172203992376",
-    appId: "1:172203992376:web:91d4ddf048071f110d8dcd",
-    measurementId: "G-E6MZYD2YXG"
+  apiKey: "AIzaSyC9b7BXNm8HijR-k-GZUJeCJn5gT0rKBbk",
+  authDomain: "campneus-dashboard.firebaseapp.com",
+  projectId: "campneus-dashboard",
+  storageBucket: "campneus-dashboard.firebasestorage.app",
+  messagingSenderId: "172203992376",
+  appId: "1:172203992376:web:91d4ddf048071f110d8dcd",
+  measurementId: "G-E6MZYD2YXG"
 };
 
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth();
+const auth = getAuth(app);
+
+export { auth };
 
 document.addEventListener("DOMContentLoaded", function () {
 
