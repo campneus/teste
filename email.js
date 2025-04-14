@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     script.onload = function () {
       console.log("EmailJS carregado com sucesso!");
       if (typeof emailjs !== "undefined") {
-        emailjs.init("bnv9mOuJF0AUUuTV4"); // USER ID
+        emailjs.init("PD__gOpVxp8iqfbYz"); // USER ID
       }
     };
     document.head.appendChild(script);
