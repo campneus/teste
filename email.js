@@ -29,8 +29,8 @@ function enviarEmailJS(userEmail) {
     message: "Usuário acessou o painel com sucesso."
   };
 
-  const serviceID = "service_pgaxlwt";
-  const templateID = "template_ebja9y1";
+  const serviceID = "service_d1atkuj";
+  const templateID = "template_z0lerf3";
 
   emailjs.send(serviceID, templateID, params)
     .then(() => console.log("Email enviado com sucesso!"))
