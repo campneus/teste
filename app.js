@@ -4,18 +4,18 @@ function selectDashboard(url) {
   const dashboardContainer = document.getElementById("dashboardContainer");
   dashboardContainer.style.display = "flex";
   dashboardContainer.style.flexDirection = "column";
-  dashboardContainer.style.width = "100vw";
-  dashboardContainer.style.height = "100vh";
+  dashboardContainer.style.width = "100vw"; // Ocupa 100% da largura
+  dashboardContainer.style.height = "100vh"; // Ocupa 100% da altura
   dashboardContainer.style.margin = "0";
   dashboardContainer.style.padding = "0";
 
   // Configura o iframe para ocupar toda a tela
   const iframe = document.getElementById("dashboardFrame");
   iframe.src = url;
-  iframe.style.flex = "1";
-  iframe.style.width = "100%";
-  iframe.style.height = "100%";
-  iframe.style.border = "none";
+  iframe.style.flex = "1";  // Faz o iframe crescer para preencher o espaço
+  iframe.style.width = "100%";  // Ocupa 100% da largura da tela
+  iframe.style.height = "100%";  // Ocupa 100% da altura da tela
+  iframe.style.border = "none";  // Remove bordas
 }
 
 document.getElementById("varejoButton").addEventListener("click", function () {
