@@ -1,27 +1,122 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  background: url("backgroup.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
 }
 
-#dashboardContainer {
-  display: none;  /* Escondido inicialmente */
+/* Estilo para o container de login */
+.container {
+  background-color: rgba(255, 255, 255, 0.95);
+  width: 400px;
+  max-width: 90%;
+  margin: 80px auto;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.container h2 {
+  margin-bottom: 20px;
+  color: #2a2a2a;
+}
+
+/* Campos de input */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* Botões padrão */
+button {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #005ecb, #00a7e6);
+}
+
+/* Container de seleção de dashboards */
+#selectionContainer {
+  display: flex;
   flex-direction: column;
-  width: 100vw;  /* Ocupa 100% da largura */
-  height: 100vh;  /* Ocupa 100% da altura */
+  align-items: center;
+  padding: 50px 20px;
+  background-color: rgba(255, 255, 255, 0.95);
+  margin: 60px auto;
+  border-radius: 16px;
+  width: 600px;
+  max-width: 95%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+#selectionContainer h2 {
+  margin-bottom: 30px;
+  color: #1a1a1a;
+}
+
+/* Botões de seleção de dashboard */
+#selectionContainer button {
+  width: 100%;
+  margin: 10px 0;
+  padding: 16px;
+  font-size: 18px;
+  background: linear-gradient(135deg, #0056b3, #00aaff);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#selectionContainer button:hover {
+  background: linear-gradient(135deg, #003e8a, #0088cc);
+}
+
+/* Botão voltar */
+#backButton {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #444;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+/* Container do dashboard */
+#dashboardContainer {
+  display: none;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
   margin: 0;
   padding: 0;
 }
 
 #dashboardFrame {
-  flex: 1;  /* Faz o iframe crescer e preencher o espaço disponível */
+  flex: 1;
   width: 100%;
   height: 100%;
   border: none;
-}
-
-#selectionContainer {
-  /* Regras para o container de seleção de dashboards */
-  display: block;
 }
