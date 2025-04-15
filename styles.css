@@ -8,9 +8,10 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: url("backgroup.jpg") no-repeat center center fixed;
-  background-size: cover;
+  background: linear-gradient(135deg, #f0f0f0, #dcdcdc);
+  background-attachment: fixed;
   color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Estilo para o container de login */
@@ -115,7 +116,11 @@ button:hover {
 .main-title {
   text-align: center;
   margin-top: 20px;
-  color: #333;
+  color: #222;
+  font-size: 36px;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 button {
