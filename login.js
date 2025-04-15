@@ -18,9 +18,22 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+const usuariosSemRestricao = [
+  "alex.cancian@campneus.com.br"
+];
+
 document.getElementById("loginButton").addEventListener("click", () => {
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
+
+  const now = new Date();
+  const hour = now.getHours();
+  const isUserAllowedAnytime = usuariosSemRestricao.includes(email);
+
+  if (!isUserAllowedAnytime && (hour < 7 || hour >= 8)) {
+    document.getElementById("error").textContent = "O acesso só é permitido das 07:00 às 19:00.";
+    return;
+  }
 
   signInWithEmailAndPassword(auth, email, password)
     .then(() => {
