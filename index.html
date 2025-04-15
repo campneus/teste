@@ -13,7 +13,13 @@
   <div class="container" id="loginContainer">
     <h2>Entrar no sistema:</h2>
     <input type="email" id="email" placeholder="Email">
-    <input type="password" id="password" placeholder="Senha">
+
+    <!-- Campo de senha com botão de mostrar/ocultar -->
+    <div class="password-container">
+      <input type="password" id="password" placeholder="Senha">
+      <span id="togglePassword" class="toggle-icon">👁️</span>
+    </div>
+
     <br>
     <button id="loginButton">Entrar</button>
     <br><br><br><br>
@@ -24,14 +30,12 @@
   <div id="selectionContainer" style="display: none;">
     <h2>Escolha qual segmento deseja visualizar:</h2>
     <div class="button-grid">
-    <button id="varejoButton">Varejo</button>
-    <button id="atacadoButton">Industrial</button>
-    <button id="industrialCarButton">Atacado CAR<br>(em construção)</button>
-    <button id="industrialMotoButton">Atacado MOTO<br>(em construção)</button
-    <br><br><br><br><br><br><br><br><br><br>
+      <button id="varejoButton">Varejo</button>
+      <button id="atacadoButton">Industrial</button>
+      <button id="industrialCarButton">Atacado CAR<br>(em construção)</button>
+      <button id="industrialMotoButton">Atacado MOTO<br>(em construção)</button>
     </div>  
     <button id="logoutButton">Sair</button>
-  
   </div>
 
   <div id="dashboardContainer" style="display: none;">
@@ -56,6 +60,16 @@
             document.getElementById("loginButton").click();
           }
         });
+      });
+
+      // Mostrar/ocultar senha
+      const toggle = document.getElementById("togglePassword");
+      const passwordField = document.getElementById("password");
+
+      toggle.addEventListener("click", function () {
+        const isHidden = passwordField.type === "password";
+        passwordField.type = isHidden ? "text" : "password";
+        this.textContent = isHidden ? "🙈" : "👁️";
       });
     });
   </script>
