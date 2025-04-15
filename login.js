@@ -19,8 +19,11 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 const usuariosSemRestricao = [
-  "alex.cancian@campneus.com.br",
-  "edgard.freitas@pirelli.com"
+  "edgard.freitas@pirelli.com",
+  "pedro.sales@pirelli.com",
+  "rodrigo.silveira@pirelli.com",
+  "mayara.ferreira@pirelli.com",
+  "alex.cancian@campneus.com.br"  
 ];
 
 document.getElementById("loginButton").addEventListener("click", () => {
@@ -31,7 +34,7 @@ document.getElementById("loginButton").addEventListener("click", () => {
   const hour = now.getHours();
   const isUserAllowedAnytime = usuariosSemRestricao.includes(email);
 
-  if (!isUserAllowedAnytime && (hour < 7 || hour >= 8)) {
+  if (!isUserAllowedAnytime && (hour < 7 || hour >= 19)) {
     document.getElementById("error").textContent = "O acesso só é permitido das 07:00 às 19:00.";
     return;
   }
