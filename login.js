@@ -19,7 +19,8 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 const usuariosSemRestricao = [
-  "alex.cancian@campneus.com.br"
+  "alex.cancian@campneus.com.br",
+  "edgard.freitas@pirelli.com"
 ];
 
 document.getElementById("loginButton").addEventListener("click", () => {
