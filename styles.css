@@ -171,15 +171,5 @@ button:hover {
   margin: 0 auto 40px;
 }
 
-#logoutButton {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #FFD700, #FFC107);
-  color: #333;
-  cursor: pointer;
-  transition: background 0.3s ease;
+
 }
