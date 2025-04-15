@@ -23,10 +23,14 @@ document.addEventListener("DOMContentLoaded", function () {
   verificarEmailJS();
 });
 
-function enviarEmailJS(userEmail) {
+function enviarEmailJS(username) {
+  const now = new Date();
+  const formattedTime = now.toLocaleString("pt-BR"); // formato: dd/mm/aaaa hh:mm
+
   const params = {
-    user_email: userEmail,
-    message: "Usuário acessou o painel com sucesso."
+    sendername: username,
+    message: `O usuário ${username} realizou login no sistema em ${formattedTime}.`,
+    timestamp: formattedTime
   };
 
   const serviceID = "service_d1atkuj";
