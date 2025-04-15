@@ -34,11 +34,3 @@ document.getElementById("backButton")?.addEventListener("click", function () {
   document.getElementById("dashboardContainer").style.display = "none";
   document.getElementById("selectionContainer").style.display = "block";
 });
-
-/* Mostrar/Ocultar senha */
-document.getElementById("togglePassword")?.addEventListener("click", function () {
-  const passwordInput = document.getElementById("password");
-  const isHidden = passwordInput.type === "password";
-  passwordInput.type = isHidden ? "text" : "password";
-  this.textContent = isHidden ? "🙈" : "👁️";
-});
